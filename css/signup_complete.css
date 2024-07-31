@@ -1,0 +1,57 @@
+#signup {
+  font-size: 24px;
+  font-weight: 100;
+}
+
+.notice {
+  margin-top: 243px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h3 {
+  font-size: 24px;
+  font-weight: 100;
+  color: #ffffff;
+  font-family: "NotoSerifKR";
+  margin-bottom: 20px;
+}
+
+p {
+  font-size: 18px;
+  font-weight: 100;
+  color: #ffffff;
+  font-family: "NotoSerifKR";
+  text-align: center;
+  margin: 0;
+}
+
+#mimo {
+  color: #fcfca8;
+}
+
+.notice img {
+  margin-top: 76px;
+}
+
+form {
+  margin-top: 192px;
+}
+
+.box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+input {
+  border: none;
+  outline: none;
+  width: 356px;
+  height: 55px;
+  border-radius: 25px;
+  font-size: 16px;
+  color: #191919;
+  background-color: #fcfca8;
+}

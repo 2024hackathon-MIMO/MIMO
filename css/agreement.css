@@ -1,0 +1,74 @@
+#signup {
+  font-size: 24px;
+  font-weight: 100;
+}
+
+.sec {
+  margin-top: 181.7px;
+  height: 664px;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.sec::-webkit-scrollbar {
+  display: none;
+}
+
+pre::-webkit-scrollbar {
+  width: 12px;
+  border-radius: 2px;
+  background-color: #787878;
+}
+
+pre::-webkit-scrollbar-thumb {
+  height: 56px;
+  border-radius: 14px;
+  background-color: #c6c6c6;
+  background-clip: padding-box;
+  border: 2.25px solid transparent;
+}
+
+pre::-webkit-scrollbar-track {
+  height: 246px;
+}
+
+pre {
+  width: 348px;
+  height: 246px;
+  border-radius: 15px;
+  border: solid #ffffff 1px;
+  overflow: auto;
+  font-style: normal;
+  font-family: "Pretendard";
+  font-size: 12px;
+  color: #f3f3f3;
+  padding: 11px 6px 0 8px;
+  letter-spacing: -0.5px;
+  word-spacing: -2px;
+  line-height: 16px;
+  white-space: pre-wrap;
+}
+
+form {
+  width: 430px;
+  display: flex;
+  justify-content: center;
+  background-color: #191919;
+  border-radius: 10px;
+  position: fixed;
+}
+
+input {
+  border: none;
+  outline: none;
+  width: 356px;
+  height: 55px;
+  border-radius: 25px;
+  margin: 17px 0;
+  font-size: 16px;
+  color: #191919;
+  background-color: #fcfca8;
+}

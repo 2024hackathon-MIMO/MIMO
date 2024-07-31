@@ -1,0 +1,69 @@
+.date {
+  font-size: 24px;
+}
+
+.sec1 {
+  margin-top: 177px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sec1 > p {
+  font-family: "NotoSerifKR";
+  font-size: 14px;
+  color: #ffffff;
+  text-align: center;
+  margin-top: 35px;
+}
+
+#mimo {
+  color: #fcfca8;
+}
+
+#bold {
+  font-weight: bold;
+}
+
+.logoutBtn {
+  border: none;
+  outline: none;
+  width: 341px;
+  height: 55px;
+  border-radius: 25px;
+  background-color: #ffffd3;
+  font-size: 14px;
+  color: #555555;
+  margin: 23px 0;
+  letter-spacing: -1px;
+}
+
+.sec2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 8px;
+}
+
+.box {
+  display: flex;
+  flex-direction: row;
+  width: 334px;
+  height: 54px;
+}
+
+#box1 {
+  border-top: solid 0.1px #ffffff;
+}
+
+.sec2 > div > p {
+  font-size: 16px;
+  color: #ffffff;
+  text-align: left;
+  width: 251px;
+  letter-spacing: -2px;
+}
+
+.sec2 > div > img {
+  margin-right: 35px;
+}

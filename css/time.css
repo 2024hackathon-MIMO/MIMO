@@ -1,0 +1,86 @@
+.date {
+  font-size: 24px;
+}
+
+.secBox {
+  margin-top: 180px;
+  height: 624px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sec1 {
+  margin-top: 40px;
+  margin-bottom: 80px;
+  text-align: center;
+  font-family: "NotoSerifKR";
+  font-size: 14px;
+  color: #ffffff;
+}
+
+.sec1 > span {
+  color: #fcfca8;
+}
+
+.message {
+  font-family: "NotoSerifKR";
+  font-size: 14px;
+  color: #ffffff;
+}
+
+input {
+  border: none;
+  outline: none;
+}
+
+.time {
+  display: grid;
+  font-size: 14px;
+  font-family: "Pretendard";
+  text-align: center;
+  align-items: center;
+  width: 99px;
+  height: 38px;
+  border-radius: 22px;
+  color: #191919;
+  background-color: #999999;
+}
+
+.sec2 > div > input {
+  background-color: #f3f3f3;
+}
+
+.sec2 > div > input[type="time"] {
+  position: relative;
+}
+
+.sec2 > div > input[type="time"]::-webkit-calendar-picker-indicator {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+}
+
+.morning,
+.night {
+  width: 321px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.sec3 {
+  margin-top: 323px;
+  margin-bottom: 30px;
+}
+
+.modifyBtn {
+  width: 356px;
+  height: 55px;
+  font-size: 14px;
+  border-radius: 24px;
+  background-color: #fcfca8;
+}

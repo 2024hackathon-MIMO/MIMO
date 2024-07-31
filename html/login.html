@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/MIMO/css/login.css" />
+    <title>login</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        min-height: 100vh;
+        background-color: #efefef;
+      }
+
+      article {
+        width: 430px;
+        height: 932px;
+        background-color: #191919;
+        border-radius: 10px;
+        position: relative;
+        top: 0;
+        left: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <article>
+      <div id="logo">
+        <img id="logo_img" src="/MIMO/img/login.html_card.svg" alt="로고이미지" />
+        <img id="mimo" src="/MIMO/img/login.html_logo.svg" alt="로고이미지" />
+      </div>
+      <form>
+      <div class="login_box">
+        <input type="text" class="id" placeholder="아이디"></input>
+        <div class="input_box">
+        <input type="password" class="password" id="password" placeholder="비밀번호"></input>
+          <img src="/MIMO/img/signup.html_clearpasswd.svg" alt="클리어" class="clear" id="clearPwd"/>
+          <img src="/MIMO/img/signup.html_eyeclosed.svg" alt="토글" class="password-toggle" id="togglePwd"/>
+        </div>
+        <input type="submit" class="loginBtn" value="로그인" ></input>
+      </div>
+    </form>
+      <div class="link">
+        <p>회원가입</p>
+        <p class="bar">|</p>
+        <p>아이디/비밀번호 찾기</p>
+      </div>
+    </article>
+    <script src="/MIMO/js/login.js"></script>
+  </body>
+</html>

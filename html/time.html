@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>timepage</title>
+    <link rel="stylesheet" type="text/css" href="/MIMO/css/base.css" />
+    <link rel="stylesheet" type="text/css" href="/MIMO/css/time.css" />
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        min-height: 100vh;
+        background-color: #efefef;
+      }
+
+      article {
+        width: 430px;
+        height: 932px;
+        background-color: #191919;
+        border-radius: 10px;
+        position: relative;
+        top: 0;
+        left: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <article>
+      <header>
+        <div class="logo">
+          <img src="/MIMO/img/base.html_logo.svg" alt="로고이미지" />
+        </div>
+        <div class="title_line">
+          <div class="date">열람시간 수정하기</div>
+        </div>
+      </header>
+
+      <section class="secBox">
+        <section class="sec1">
+            MIMO의 <span>메세지 열람가능시간</span>은<br>
+            모닝메세지, 나잇메세지 각각 <span>1시간</span>입니다.
+        </section>
+        <section class="sec2">
+            <div class="morning">
+                <p class="message">모닝메세지 :</p>
+                <input class="time" type="time" value="06:00" min="06:00" max="10:00" /> 
+                <p class="message">~</p>
+                <p class="time">오전 07:00</p>
+            </div>
+            <div class="night">
+                <p class="message">나잇메세지 :</p>
+                <input class="time" type="time" value="22:00" min="22:00:00" max="24:00:00" />
+                <p class="message">~</p>
+                <p class="time">오전 12:00</p>
+            </div>
+        </section>
+        <sectioni class="sec3">
+            <form>
+                <input type="submit" class="modifyBtn" value="수정" ></input>
+            </form>
+        </sectioni>
+      </section>
+
+      <footer>
+        <div class="button_box">
+          <button id="back"><img src="/MIMO/img/base.html_back.svg" alt="뒤로가기" /></button>
+          <button id="group"><img src="/MIMO/img/base.html_group.svg" alt="그룹" /></button>
+          <button id="ball"><img src="/MIMO/img/base.html_ball.svg" alt="알림" /></button>
+          <button id="home"><img src="/MIMO/img/base.html_home.svg" alt="홈화면" /></button>
+        </div>
+      </footer>
+    </article>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const buttons = document.querySelectorAll(".button_box button");
+        buttons.forEach((button) => {
+          button.addEventListener("click", () => {
+            buttons.forEach((btn) => {
+              btn.classList.remove("active");
+              const img = btn.querySelector("img");
+              const imgSrc = img.getAttribute("src").replace("_active", "");
+              img.setAttribute("src", imgSrc);
+            });
+            button.classList.add("active");
+            const img = button.querySelector("img");
+            const imgSrc = img.getAttribute("src").replace(".svg", "_active.svg");
+            img.setAttribute("src", imgSrc);
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

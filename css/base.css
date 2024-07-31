@@ -1,0 +1,94 @@
+/* 본명조 폰트 */
+
+@font-face {
+  font-family: "NotoSerifKR";
+  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/NotoSerifKR.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* 화면에서 고정 */
+
+header,
+footer {
+  position: fixed;
+}
+
+footer {
+  top: 841px;
+  left: 32px;
+}
+
+/* header 부분 */
+
+.logo {
+  margin-top: 65px;
+  margin-left: 32px;
+}
+
+.title_line {
+  background-color: #797979;
+  width: 430px;
+  height: 46px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  margin-top: 35.44px;
+  font-family: "NotoSerifKR";
+  font-size: 15px;
+  font-weight: 500;
+  color: #e4e4e4; /*원래는 #ffffff에 투명도 80이었지만 투명도 조절보다 이게 더 편해서 추출해서 사용했습니다*/
+}
+
+.checkbox {
+  font-size: 13px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+input[type="checkbox"] {
+  width: 33px;
+  height: 33px;
+  flex-shrink: 0;
+  border: 1px solid var(--MAIN, #ffffff);
+  border-radius: 50%; /* 원형 체크박스 */
+  appearance: none; /* 기본 체크박스 스타일 제거 */
+  margin-left: 16px;
+}
+
+input[type="checkbox"]:checked::after {
+  content: "";
+  display: block;
+  width: 150%; /* 디자인처럼 원형을 넘어가게 */
+  height: 150%; /* 디자인처럼 원형을 넘어가게 */
+  background-image: url("img/base.html_check.svg"); /* 체크표시 이미지 경로 */
+  background-size: 100%; /* 원형 정도로 크기 맞춤 */
+  background-repeat: no-repeat; /* 이미지 반복 없음 */
+  transform: translate(-10%, -20%); /* 중앙으로 이동 */
+}
+
+.button_box {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 355px;
+  height: 55px;
+  border-radius: 100px;
+  background-color: #d1d1d1;
+  padding: 0px 5px;
+}
+
+button {
+  background-color: #d1d1d1;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+#back,
+#group,
+#ball {
+  padding-top: 5px; /* align-items로 맞춰주었음에도 위로 올라가있어 보정*/
+}

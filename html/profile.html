@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="/MIMO/css/profile.css" />
+    <link rel="stylesheet" type="text/css" href="/MIMO/css/base.css" />
+    <title>edit profile</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        min-height: 100vh;
+        background-color: #efefef;
+      }
+
+      article {
+        width: 430px;
+        height: 932px;
+        background-color: #191919;
+        border-radius: 10px;
+        position: relative;
+        top: 0;
+        left: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <article>
+      <header>
+        <div class="logo">
+          <img src="/MIMO/img/base.html_logo.svg" alt="로고이미지" />
+        </div>
+        <div class="title_line">
+          <div class="date" id="signup">회원정보 수정</div>
+        </div>
+        </div>
+      </header>
+      <form>
+        <section class="sec1">
+        <div class="box">
+          <p class="title">닉네임</p>
+          <div class="input_box">
+          <input type="text" id="nickname" class="nickname" placeholder="1자 이상 10자 이하 한글, 영어, 숫자 조합"></input>
+          <img src="/MIMO/img/signup.html_check.svg" alt="체크" class="valid" style="display: none;"/>
+          <img src="/MIMO/img/signup.html_error.svg" alt="X" class="invalid" style="display: none;"/>
+        </div>
+        </div>
+        <div class="box">
+          <p class="title">아이디</p>
+          <div class="input_box">
+          <input type="text" id="id" class="id" placeholder="6~10자"></input>
+          <img src="/MIMO/img/signup.html_check.svg" alt="체크" class="valid" style="display: none;"/>
+          <img src="/MIMO/img/signup.html_error.svg" alt="X" class="invalid" style="display: none;"/>
+        </div>
+        </div>
+        <div class="box">
+          <p class="title">이메일</p>
+          <div class="input_box">
+          <input type="email" id="email" class="email" placeholder="mimo@gmail.com"></input>
+          <img src="/MIMO/img/signup.html_check.svg" alt="체크" class="valid" style="display: none;"/>
+          <img src="/MIMO/img/signup.html_error.svg" alt="X" class="invalid" style="display: none;"/>
+        </div>
+        </div>
+        <div class="box">
+          <p class="title">비밀번호</p>
+          <div class="input_box">
+          <input type="password" id="password1" class="password" placeholder="8자 이상 영문, 숫자 조합"></input>
+          <img src="/MIMO/img/signup.html_check.svg" alt="체크" class="valid" style="display: none;"/>
+          <img src="/MIMO/img/signup.html_error.svg" alt="X" class="invalid" style="display: none;"/>
+          <img src="/MIMO/img/signup.html_clearpasswd.svg" alt="클리어" class="clear" id="clearPwd1"/>
+          <img src="/MIMO/img/signup.html_eyeclosed.svg" alt="토글" class="toggle" id="togglePwd1"/>
+        </div>
+        </div>
+        <div class="box">
+          <p class="title">비밀번호 확인</p>
+          <div class="input_box">
+          <input type="password" id="password2" class="password2" placeholder="비밀번호를 한 번 더 입력해주세요."></input>
+          <img src="/MIMO/img/signup.html_check.svg" alt="체크" class="valid" style="display: none;"/>
+          <img src="/MIMO/img/signup.html_error.svg" alt="크로스 이미지" class="invalid" style="display: none;"/>
+          <img src="/MIMO/img/signup.html_clearpasswd.svg" alt="클리어 이미지" class="clear" id="clearPwd2"/>
+          <img src="/MIMO/img/signup.html_eyeclosed.svg" alt="토글 이미지" class="toggle" id="togglePwd2"/>
+        </div>
+        </div>
+    </section>
+
+        <section class="sec2">
+        <div class="box">
+            <input type="submit" value="수정" id="submit"></input>
+          </div>
+        </section>
+      </form>
+    </article>
+    <script src="/MIMO/js/profile.js"></script>
+  </body>
+</html>
