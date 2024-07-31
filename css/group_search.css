@@ -1,0 +1,279 @@
+/* 본명조 폰트 */
+
+@font-face {
+  font-family: "NotoSerifKR";
+  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/NotoSerifKR.woff") format("woff");
+  font-style: normal;
+}
+
+/* 화면에서 고정 */
+
+header,
+footer {
+  position: fixed;
+}
+
+footer {
+  top: 841px;
+  left: 32px;
+}
+
+/* header 부분 */
+
+.logo {
+  margin-top: 65px;
+  margin-left: 32px;
+}
+
+.title_line {
+  background-color: #797979;
+  width: 430px;
+  height: 46px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  margin-top: 35.44px;
+  font-family: "NotoSerifKR";
+  font-size: 23px;
+  font-weight: 100;
+  color: #e4e4e4; /*원래는 #ffffff에 투명도 80이었지만 투명도 조절보다 이게 더 편해서 추출해서 사용했습니다*/
+}
+
+.button_box {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 355px;
+  height: 55px;
+  border-radius: 100px;
+  background-color: #d1d1d1;
+  padding: 0px 5px;
+}
+
+button {
+  background-color: #d1d1d1;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+#back,
+#group,
+#ball {
+  padding-top: 5px; /* align-items로 맞춰주었음에도 위로 올라가있어 보정*/
+}
+
+/*여기까지 고정 상단바와 하단바 */
+
+.notice {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #ffffff;
+  font-family: "NotoSerifKR";
+  font-size: 13px;
+  font-weight: 100;
+  margin-top: 446px;
+}
+
+.notice span {
+  color: #fcfca8;
+}
+
+.add_button {
+  position: fixed;
+  top: 750px;
+  left: 320px;
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.search_box {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 237px;
+  height: 37px;
+  margin-top: 198px;
+  border-radius: 25px;
+  background: #ffffff;
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.25);
+  display: flex;
+  padding: 0px 15px;
+}
+
+input[type="text"] {
+  background-color: transparent; /* 배경 투명하게 */
+  border: none;
+  width: 100%;
+  align-items: center;
+  color: #797979;
+  font-family: "NotoSerifKR";
+  font-size: 12px;
+  outline: none;
+}
+
+button[type="submit"] {
+  background-color: transparent; /* 배경 투명하게 */
+  padding-top: 5px;
+}
+
+p {
+  color: #ffffff;
+  font-family: "NotoSerifKR";
+  font-size: 14px;
+}
+
+/* 여기부터 드롭다운 */
+
+.group-select {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: 25px auto 26px auto;
+  width: 85%;
+  text-align: center;
+}
+
+.group-select select {
+  background-color: #999999;
+  width: 87px;
+  height: 37px;
+  padding: 10px;
+  border-radius: 25px;
+  border: none;
+  font-size: 14px;
+  outline: none;
+}
+
+.group-select option {
+  background-color: #ffffff;
+  font-size: 14px;
+  width: 87px;
+  outline: none;
+}
+
+.custom-select {
+  position: relative;
+  display: inline-block;
+  background-color: #999999;
+  width: 87px;
+  height: 37px;
+  border-radius: 25px;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-family: "Pretendard-Regular";
+}
+
+.custom-select select {
+  display: none;
+}
+
+.select-selected {
+  background-color: #999999;
+  border-radius: 25px;
+  height: 37px;
+  line-height: 17px;
+  font-size: 14px;
+  color: #000000;
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 5px;
+}
+
+.select-selected:after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 9px solid #d9d9d9;
+  border-radius: 1px;
+}
+
+.select-items {
+  position: absolute;
+  background-color: #fff;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 99;
+  border-radius: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.select-hide {
+  display: none;
+}
+
+.select-items div {
+  color: #191919;
+  padding: 8px 16px;
+  cursor: pointer;
+  user-select: none;
+}
+
+/* 여기까지 드롭다운 */
+
+.team_list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.team_box {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  width: 337px;
+  height: 92px;
+  background-color: #ffffff;
+  border-radius: 26px;
+  padding-left: 26px;
+  margin-bottom: 16px;
+}
+
+.team_name {
+  color: #191919;
+  font-family: "NotoSerifKR";
+  font-size: 14px;
+}
+
+.team_info {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  color: #999999;
+  font-family: "NotoSerifKR";
+  font-size: 10px;
+  margin: 4px 0px 11px 0px;
+}
+
+.team_info span {
+  margin-right: 3px;
+}
+
+.team_info div {
+  margin-right: 7px;
+}
+
+.team_intro {
+  color: #191919;
+  font-family: "NotoSerifKR";
+  font-size: 12px;
+}

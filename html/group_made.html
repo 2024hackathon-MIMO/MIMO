@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <!-- css 파일 불러오기 -->
+    <link rel="stylesheet" type="text/css" href="./css/group_made.css" />
+    <title>group_made_page</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        min-height: 100vh;
+        background-color: #efefef;
+      }
+
+      article {
+        width: 430px;
+        height: 1000px;
+        background-color: #191919;
+        border-radius: 10px;
+        position: relative;
+        top: 0;
+        left: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <article>
+      <header>
+        <div class="logo">
+          <img src="img/base.html_logo.svg" alt="로고이미지" />
+        </div>
+        <div class="title_line">
+          <div class="title">그룹 만들기</div>
+        </div>
+      </header>
+      <section>
+        <div class="main">
+          <div class="box">
+            <div class="input_title">그룹 생성일</div>
+            <div class="fix_box">2024.01.01.</div>
+          </div>
+          <div class="box">
+            <div class="input_title">그룹 대표</div>
+            <div class="fix_box">닉네임</div>
+          </div>
+          <div class="box">
+            <div class="input_title">그룹 이름</div>
+            <div class="input_box">
+              <input type="text" placeholder="10자이하의 그룹명을 입력해주세요." />
+            </div>
+          </div>
+          <div class="group-select">
+            <p>최대인원설정</p>
+            <div class="custom-select">
+              <div class="select-selected">25명</div>
+              <div class="select-items select-hide">
+                <div>1명</div>
+                <div>2명</div>
+                <div>3명</div>
+                <div>4명</div>
+                <div>5명</div>
+                <div>6명</div>
+                <div>7명</div>
+                <div>8명</div>
+                <div>9명</div>
+                <div>10명</div>
+                <div>11명</div>
+                <div>12명</div>
+                <div>13명</div>
+                <div>14명</div>
+                <div>15명</div>
+                <div>16명</div>
+                <div>17명</div>
+                <div>18명</div>
+                <div>19명</div>
+                <div>20명</div>
+                <div>21명</div>
+                <div>22명</div>
+                <div>23명</div>
+                <div>24명</div>
+                <div>25명</div>
+              </div>
+            </div>
+          </div>
+          <div class="box">
+            <div class="input_title">그룹 한 줄 소개</div>
+            <div class="input_box">
+              <input type="text" placeholder="100자이하의 그룹 소개를 작성해주세요." />
+            </div>
+          </div>
+        </div>
+        <div class="button_line">
+          <button class="complete">완료</button>
+          <button class="add">생성</button>
+        </div>
+      </section>
+      <footer>
+        <div class="button_box">
+          <button id="back"><img src="img/base.html_back.svg" alt="뒤로가기" /></button>
+          <button id="group"><img src="img/base.html_group.svg" alt="그룹" /></button>
+          <button id="ball"><img src="img/base.html_ball.svg" alt="알림" /></button>
+          <button id="home"><img src="img/base.html_home.svg" alt="홈화면" /></button>
+        </div>
+      </footer>
+    </article>
+    <script src="./js/group_search.js"></script>
+  </body>
+</html>

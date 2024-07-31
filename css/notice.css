@@ -1,0 +1,90 @@
+/* 본명조 폰트 */
+
+@font-face {
+  font-family: "NotoSerifKR";
+  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/NotoSerifKR.woff") format("woff");
+  font-style: normal;
+}
+
+/* 화면에서 고정 */
+
+header,
+footer {
+  position: fixed;
+}
+
+footer {
+  top: 841px;
+  left: 32px;
+}
+
+/* header 부분 */
+
+.logo {
+  margin-top: 65px;
+  margin-left: 32px;
+}
+
+.title_line {
+  background-color: #797979;
+  width: 430px;
+  height: 46px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  margin-top: 35.44px;
+  font-family: "NotoSerifKR";
+  font-size: 23px;
+  font-weight: 100;
+  color: #e4e4e4; /*원래는 #ffffff에 투명도 80이었지만 투명도 조절보다 이게 더 편해서 추출해서 사용했습니다*/
+}
+
+.button_box {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 355px;
+  height: 55px;
+  border-radius: 100px;
+  background-color: #d1d1d1;
+  padding: 0px 5px;
+}
+
+button {
+  background-color: #d1d1d1;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+#back,
+#group,
+#ball {
+  padding-top: 5px; /* align-items로 맞춰주었음에도 위로 올라가있어 보정*/
+}
+
+/*여기까지 고정 상단바와 하단바 */
+
+section {
+  height: 664px;
+  padding: 32px;
+  margin-top: 177px;
+}
+
+.message_box {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 366px;
+  height: 60px;
+  color: #ffffff;
+  font-family: "NotoSerifKR";
+  font-size: 13px;
+  border-bottom: 0.5px solid #999999;
+}
+
+.message_box img {
+  margin-left: 10px;
+  margin-right: 23px;
+}
