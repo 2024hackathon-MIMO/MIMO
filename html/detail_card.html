@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>모닝메세지</title>
+    <link rel="stylesheet" href="../css/detail_card.css">
+    <style>
+    body {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        min-height: 100vh;
+        background-color: #efefef;
+    }
+
+    article {
+        width: 430px;
+        height: 932px;
+        background-color: #191919;
+        border-radius: 10px;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Center content horizontally */
+    }
+
+    .vip {
+        display: none; /* 처음에는 안 보이도록 설정 */
+    }
+
+    .check button {
+        background: none;
+        border: none;
+        padding: 0;
+        cursor: pointer;
+    }
+    </style>
+</head>
+<body>
+<article>
+    <div class="check">
+        <button id="vip-toggle"><img src="../img/detailcard_vip.png"></button>
+    </div>
+    <div class="vip">
+        <div class="toggle-buttons">
+            <button id="bg-btn" class="active">배경색</button>
+            <button id="icon-btn">아이콘</button>
+        </div>
+        <div id="bg-options" class="options active">
+            <div style="background-color: #ffffff;"></div>
+            <div class="separator"></div>
+            <div style="background-color: #d1f7c4;"></div>
+            <div style="background-color: #f8f7c4;"></div>
+            <div style="background-color: #c4f7d4;"></div>
+            <div style="background-color: #c4f2f7;"></div>
+            <div style="background-color: #d1c4f7;"></div>
+            <div style="background-color: #f7c4e4;"></div>
+            <div style="background-color: #f7ccc4;"></div>
+            <!-- <div class="lock">프리미엄 요금제 구독 시 변경 가능한 상품입니다.</div> -->
+        </div>
+        <div id="icon-options" class="options">
+            <div>♣</div>
+            <div>😊</div>
+            <div>🐱</div>
+            <div>🌟</div>
+            <div>🎶</div>
+            <!-- <div class="lock">프리미엄 요금제 구독 시 변경 가능한 상품입니다.</div> -->
+        </div>
+    </div>
+    <div class="card">
+        <div class="container">
+            <div class="card-header">
+                <img class="card-icon" src="../img/detailcard_morning.png" alt="icon">
+                <h3>모닝메세지</h3>
+            </div>
+            <div class="card-text">
+                <p>안녕 오늘 하루는 어땠나요<br>오늘 날씨만큼 흐렸나요<br>화창하진 않았대도 자그만 행복이<br>깃들었길 바래요</p>
+            </div>
+            <div class="card-footer">
+                <p>from. 닉네임</p>
+            </div>
+        </div>
+    </div>
+</article>
+<script>
+    document.getElementById('bg-btn').addEventListener('click', function() {
+        this.classList.add('active');
+        document.getElementById('icon-btn').classList.remove('active');
+        document.getElementById('bg-options').classList.add('active');
+        document.getElementById('icon-options').classList.remove('active');
+    });
+
+    document.getElementById('icon-btn').addEventListener('click', function() {
+        this.classList.add('active');
+        document.getElementById('bg-btn').classList.remove('active');
+        document.getElementById('icon-options').classList.add('active');
+        document.getElementById('bg-options').classList.remove('active');
+    });
+
+    // 배경색 옵션을 클릭하면 container 배경색 변경
+    document.querySelectorAll('#bg-options > div').forEach(div => {
+        div.addEventListener('click', function() {
+            document.querySelector('.container').style.backgroundColor = this.style.backgroundColor;
+        });
+    });
+
+    // VIP 버튼 클릭 시 vip 클래스 보이도록 설정하고 버튼 숨김
+    document.getElementById('vip-toggle').addEventListener('click', function(event) {
+        event.stopPropagation(); // 이벤트 버블링 막기
+        document.querySelector('.vip').style.display = 'block';
+        this.style.display = 'none';
+    });
+
+    // 화면 아무 곳이나 클릭하면 vip 클래스 숨기고 버튼 보이기
+    document.body.addEventListener('click', function() {
+        document.querySelector('.vip').style.display = 'none';
+        document.getElementById('vip-toggle').style.display = 'block';
+    });
+
+    // VIP 섹션 내부 클릭 시 이벤트 버블링 막기
+    document.querySelector('.vip').addEventListener('click', function(event) {
+        event.stopPropagation();
+    });
+</script>
+</body>
+</html>

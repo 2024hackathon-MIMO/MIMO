@@ -1,0 +1,23 @@
+.card-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 430px;
+    height: 272px;
+}
+
+.card {
+    width: 100px;
+    height: 150px;
+    position: absolute;
+    transition: all 0.5s ease;
+    cursor: pointer;
+    transform-origin: bottom center;
+}
+
+.card img {
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+}

@@ -1,0 +1,97 @@
+@font-face {
+    font-family: "NotoSerifKR";
+    src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/NotoSerifKR.woff") format("woff");
+    font-weight: 400;
+    font-style: normal;
+}
+
+p, .time-change button {
+    font-family: "NotoSerifKR";
+}
+
+.main-message {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #F3F3F3;
+    border-radius: 100px;
+    width: 384px;
+    height: 86px;
+    text-align: center;
+    margin: 213px auto 0 auto;
+}
+
+.main-message img {
+    width: 50px;
+    height: 55px;
+}
+
+.main-message .btn {
+    width: 7px;
+    height: 18px;
+}
+
+.main-message p {
+    font-size: 14px;
+    color: #494949;
+}
+
+.time-message {
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    padding: 24px;
+}
+
+.main-time {
+    display: flex;
+    flex-direction: column;
+    margin-left: 15px;
+    color: #ffffff;
+}
+
+
+.main-time p {
+    margin: 5px 3px;
+    font-size: 12px;
+}
+
+.message {
+    display: flex;
+    flex-direction: row;
+}
+
+.time-change button {
+    background-color: #00000000;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 10px;
+    width: 100%;
+    margin-top: 5px;
+}
+
+.card-box {
+    width: 430px;
+    height: 272px;
+    margin-top: 23px;
+    background-color: #797979;
+}
+
+.footer {
+    display: flex;
+    justify-content: space-around;
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+}
+
+.footer div {
+    width: 24%;
+    background-color: #505050;
+    padding: 15px 0;
+    text-align: center;
+    border-radius: 10px;
+}

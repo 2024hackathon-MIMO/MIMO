@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main Page</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" type="text/css" href="../css/base.css"/>
+    <link rel="stylesheet" href="../css/card.css">
+    <style>
+    body {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        min-height: 100vh;
+        background-color: #efefef;
+    }
+
+    article {
+        width: 430px;
+        height: 932px;
+        background-color: #191919;
+        border-radius: 10px;
+        position: relative;
+        display: flex;
+        justify-content: center; /* Center content horizontally */
+    }
+    </style>
+</head>
+<body>
+    <article>
+        <header>
+            <div class="logo">
+            <img src="../img/base.html_logo.svg" alt="로고이미지" />
+            </div>
+            <div class="title_line">
+            <div class="date">7월 17일 수요일,</div>
+            <div class="checkbox">
+                오늘의 메세지 등록
+                <input type="checkbox" id="check" />
+                <label for="check"></label>
+            </div>
+            </div>
+        </header>
+        <div class="main">
+            <div class="main-message">
+                <img src="../img/main_todaycard.svg">
+                <p>
+                    오늘의 메세지를 등록하고<br>
+                    따뜻한 한 마디를 주고 받아보세요.
+                </p>
+                <img class="btn" src="../img/main_input.svg">
+            </div>
+            <div class="time-message">
+                <div class="main-time">
+                    <div class="message">
+                        <p>모닝메세지</p>
+                        <P>08:00 ~ 09:00</P>
+                    </div>
+                    <div class="message">
+                        <p>나잇메세지</p>
+                        <P>23:00 ~ 00:00</P>
+                    </div>
+                </div>
+                <div class="time-change">
+                    <button>열람시간 수정하기 ></button>
+                </div>
+            </div>
+            <div class="card-box">
+                <div id="card-container" class="card-container">
+                    <!-- Cards will be added here dynamically -->
+                </div>
+                <script src="../js/card.js"></script>
+            </div>
+        </div>
+        <footer>
+            <div class="button_box">
+            <button id="back"><img src="../img/base.html_back.svg" alt="뒤로가기" /></button>
+            <button id="group"><img src="../img/base.html_group.svg" alt="그룹" /></button>
+            <button id="ball"><img src="../img/base.html_ball.svg" alt="알림" /></button>
+            <button id="home"><img src="../img/base.html_home.svg" alt="홈화면" /></button>
+            </div>
+        </footer>
+    </article>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+          const buttons = document.querySelectorAll(".button_box button");
+          buttons.forEach((button) => {
+            button.addEventListener("click", () => {
+              buttons.forEach((btn) => {
+                btn.classList.remove("active");
+                const img = btn.querySelector("img");
+                const imgSrc = img.getAttribute("src").replace("_active", "");
+                img.setAttribute("src", imgSrc);
+              });
+              button.classList.add("active");
+              const img = button.querySelector("img");
+              const imgSrc = img.getAttribute("src").replace(".svg", "_active.svg");
+              img.setAttribute("src", imgSrc);
+            });
+          });
+        });
+      </script>
+</body>
+</html>
