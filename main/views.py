@@ -52,23 +52,16 @@ def main(request):
         night_time = datetime.strptime('21:00:00', '%H:%M:%S').time()
 
     # 디버깅을 위해 시간 출력
-    # print(f"현재 시간: {current_time}, 모닝 시간: {morning_time}, 나잇 시간: {night_time}")
+    #print(f"현재 시간: {current_time}, 모닝 시간: {morning_time}, 나잇 시간: {night_time}")
 
     today = timezone.now().date()
     user_profile, created = Profile.objects.get_or_create(user=user)
-
-    # 어제 날짜 계산
-    yesterday = today - timedelta(days=1)
-
-    # 초기화 로직: 어제 작성한 메시지는 초기화
-    deleted_messages_count, _ = Message.objects.filter(nick=user_profile, created_at__date=yesterday).delete()
-    print(f"삭제된 메시지 수: {deleted_messages_count}")
-
     user_message = Message.objects.filter(nick=user_profile, created_at__date=today).first()
     user_has_written_message = Message.objects.filter(nick=user_profile, created_at__date=today).exists()
 
     # 오늘 작성된 메시지들
     messages = Message.objects.filter(created_at__date=today).order_by('created_at')
+    #print(messages)
 
     # 메시지를 작성한 사용자들
     users_with_messages = [message.nick.user for message in messages]
@@ -85,6 +78,7 @@ def main(request):
         
     else:
         next_user_message = None
+    #print(next_user_message)
 
     context = {
         'morning_time': morning_time,
@@ -140,7 +134,6 @@ def main(request):
             if not Notification.objects.filter(user=user, message="나잇메세지를 열람할 수 있습니다.").exists():
                 Notification.objects.create(user=user, message="나잇메세지를 열람할 수 있습니다.")
 
-
     return render(request, 'main/main.html', context)
 
 # 메시지 열람하기 >> 모닝 나잇 따로 분류해야할 듯
@@ -152,7 +145,7 @@ def message_list(request):
     messages = Message.objects.filter(created_at__date=today).filter(
         models.Q(group__in=user_groups) | models.Q(group__isnull=True)
     ).order_by('created_at')
-    
+
     # 나잇/모닝 열람시간에 맞는 메세지 조회
     open_time = openTime.objects.filter(user=request.user).first()
     if open_time:
@@ -161,15 +154,13 @@ def message_list(request):
     else:
         morning_time = datetime.strptime('06:00:00', '%H:%M:%S').time()
         night_time = datetime.strptime('23:00:00', '%H:%M:%S').time()
-    
+
     now = timezone.localtime(timezone.now())
     current_time = now.time()
-    
+
     # 시간대 결정
-    # 모닝 시간대는 5시부터 12시까지
-    # 나잇 시간대는 21시부터 4시 59분 59초까지
     time_period = get_time_period(current_time, morning_time, night_time)
-    
+
     if time_period == 'night':
         messages = messages.filter(night_mes__isnull=False)
     elif time_period == 'morning':
@@ -185,19 +176,9 @@ def message_list(request):
         next_user_index = (user_message_index + 1) % len(messages)
         next_user_message = messages[next_user_index]
 
-
     # 현재 사용자가 좋아요를 눌렀는지 여부 확인
     user_morning_liked_message_ids = user_profile.morning_liked_messages.values_list('id', flat=True)
     user_night_liked_message_ids = user_profile.night_liked_messages.values_list('id', flat=True)
-
-    user_message = messages.filter(nick=user_profile).first()
-    next_user_message = None
-
-    if user_message:
-        user_message_index = list(messages).index(user_message)
-        if len(messages) > 1:
-            next_user_index = (user_message_index + 1) % len(messages)
-            next_user_message = messages[next_user_index]
 
     context = {
         'messages': messages,
@@ -208,6 +189,7 @@ def message_list(request):
     }
 
     return render(request, 'main/message_list.html', context)
+
 # 메세지 작성하기
 @login_required
 def message_create(request):

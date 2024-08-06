@@ -1,5 +1,4 @@
-{% extends 'base.html' %} {% load static %} {% block title %} Main Page
-{%endblock %} {% block style %}
+{% extends 'base.html' %}{% load static %}{% block title %}main_page{% endblock %} {% block style %}
 <link rel="stylesheet" href="{% static 'css/main.css' %}" />
 <link rel="stylesheet" href="{% static 'css/card.css' %}" />
 {% endblock %} {% block main_area %}
@@ -7,30 +6,20 @@
   {% if user_has_written_message %}
   <a href="{% url 'main:update' user_message.id %}">
     <div class="main-message">
-      <img src="{% static 'img/main_todaycard.svg' %}" alt="Today Card" />
+      <img src="{% static 'img/main_todaycard.svg' %}" />
       <p>{{ time_message }}</p>
-      <img
-        class="btn"
-        src="{% static 'img/main_input.svg' %}"
-        alt="Input Button"
-      />
+      <img class="btn" src="{% static 'img/main_input.svg' %}" />
     </div>
   </a>
-
   {% else %}
   <a href="{% url 'main:message_create' %}">
     <div class="main-message">
-      <img src="{% static 'img/main_todaycard.svg' %}" alt="Today Card" />
+      <img src="{% static 'img/main_todaycard.svg' %}" />
       <p>{{ time_message }}</p>
-      <img
-        class="btn"
-        src="{% static 'img/main_input.svg' %}"
-        alt="Input Button"
-      />
+      <img class="btn" src="{% static 'img/main_input.svg' %}" />
     </div>
   </a>
   {% endif %}
-
   <div class="time-message">
     <div class="main-time">
       <div class="message">
@@ -46,40 +35,27 @@
       <a href="{% url 'main:modify_open_time' %}">열람시간 수정하기 ></a>
     </div>
   </div>
-
-  {% if user_has_written_message %} {% if True %}
+  {% if user_has_written_message %} {% if can_open_messages %}
   <div class="card-box">
-    <div
-      id="card-container"
-      data-card-img-url="{% static 'img/main_card.svg' %}"
-      data-message-list-url="{% url 'main:message_list' %}"
-      class="card-container"
-    >
+    <div id="card-container" data-card-img-url="{% static 'img/main_card.svg' %}" data-message-list-url="{% url 'main:message_list' %}" class="card-container">
       <!-- Cards will be added here dynamically -->
     </div>
     <script src="{% static 'js/card.js' %}"></script>
   </div>
   {% else %}
   <div class="card-box">
-    <div
-      id="card-container"
-      data-card-img-url="{% static 'img/main_card.svg' %}"
-      class="card-container"
-    >
+    <div id="card-container" data-card-img-url="{% static 'img/main_card.svg' %}" class="card-container">
       <!-- Cards will be added here dynamically -->
     </div>
+    <img src="{% static 'img/main_alert_after.svg' %}" alt="Overlay Image" class="overlay-image" />
     <script src="{% static 'js/card.js' %}"></script>
   </div>
   {% endif %} {% else %}
   <div class="card-box">
-    <div
-      id="card-container"
-      data-card-img-url="{% static 'img/main_card.svg' %}"
-      data-message-list-url="{% url 'main:message_list' %}"
-      class="card-container"
-    >
+    <div id="card-container" data-card-img-url="{% static 'img/main_card.svg' %}" class="card-container">
       <!-- Cards will be added here dynamically -->
     </div>
+    <img src="{% static 'img/main_alert_before.svg' %}" alt="Overlay Image" class="overlay-image" />
     <script src="{% static 'js/card.js' %}"></script>
   </div>
   {% endif %}
