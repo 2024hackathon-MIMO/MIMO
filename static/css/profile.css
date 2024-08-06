@@ -3,8 +3,8 @@ header {
   border-radius: 10px;
 }
 
-#signup {
-  font-size: 24px;
+.date {
+  font-size: 23px;
 }
 
 form {
@@ -80,4 +80,13 @@ form {
   display: flex;
   flex-direction: column;
   align-items: space-between;
+}
+
+.input_box > img {
+  width: 15px;
+}
+
+#togglePwd1,
+#togglePwd2 {
+  width: 20px;
 }

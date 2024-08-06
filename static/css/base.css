@@ -1,17 +1,11 @@
 /* 본명조 폰트 */
 
-@font-face {
-  font-family: "NotoSerifKR";
-  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/NotoSerifKR.woff") format("woff");
-  font-weight: normal;
-  font-style: normal;
-}
-
 /* 화면에서 고정 */
 
 header,
 footer {
   position: fixed;
+  background-color: #191919;
 }
 
 footer {
@@ -35,7 +29,7 @@ footer {
   align-items: center;
   justify-content: space-around;
   margin-top: 35.44px;
-  font-family: "NotoSerifKR";
+  font-family: "Noto Serif KR", serif;
   font-size: 15px;
   font-weight: 500;
   color: #e4e4e4; /*원래는 #ffffff에 투명도 80이었지만 투명도 조절보다 이게 더 편해서 추출해서 사용했습니다*/

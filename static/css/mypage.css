@@ -1,5 +1,5 @@
 .date {
-  font-size: 24px;
+  font-size: 23px;
 }
 
 .sec1 {
@@ -76,4 +76,5 @@ a {
 
 .sec2 > div > img {
   margin-right: 35px;
+  width: 23px;
 }

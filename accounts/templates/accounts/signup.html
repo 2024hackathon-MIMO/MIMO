@@ -36,13 +36,14 @@
           <img src="{% static 'img/base.html_logo.svg' %}" alt="로고이미지" />
         </div>
         <div class="title_line">
-          <div class="date" id="signup">회원가입</div>
+          <div class="date">회원가입</div>
         </div>
         </div>
       </header>
 
       <form method="post">
         {% csrf_token %}
+        <div id="inputBox">
         <div class="box">
           <label for="nickname" class="title">닉네임</label>
           <div class="input_box">
@@ -76,6 +77,9 @@
           <img src="{% static 'img/signup.html_clearpasswd.svg' %}" alt="클리어" class="clear" id="clearPwd1"/>
           <img src="{% static 'img/signup.html_eyeclosed.svg' %}"  data-eye-open="{% static 'img/signup.html_eyeopened.svg' %}" data-eye-closed="{% static 'img/signup.html_eyeclosed.svg' %}" alt="토글" class="password-toggle" id="togglePwd1"/>
         </div>
+        {% if form.errors %}
+          <p class="error">아이디 또는 이메일이 비밀번호와 비슷합니다.</p>
+        {% endif %}
         </div>
         <div class="box">
           <label for="password2" class="title">비밀번호 확인</label>
@@ -97,6 +101,7 @@
           </div>
           <input type="checkbox" id="checkbox">
             <label for="checkbox" data-checkbox="{% static 'img/base.html_check' %}"></label>
+        </div>
         </div>
         <div class="box">
             <button type="submit" id="submit">다음</button>

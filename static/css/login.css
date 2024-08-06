@@ -47,6 +47,14 @@ input {
   margin-bottom: 23px;
 }
 
+#clearPwd {
+  width: 15px;
+}
+
+#togglePwd {
+  width: 20px;
+}
+
 #loginBtn {
   width: 306px;
   background-color: #fcfca8;
