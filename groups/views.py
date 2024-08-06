@@ -97,3 +97,25 @@ def search(request):
         'groups' : groups,
         'search' : search
     })
+
+# 나의 그룹 >> 그룹디테일
+def mygroup_detail(request, group_id):
+    group = get_object_or_404(Group, id=group_id)
+    user = Profile.objects.get(user=request.user)
+    is_member = False
+
+    if request.user.is_authenticated:
+        profile = Profile.objects.get(user=request.user)
+        is_member = group.memberships.filter(id=profile.id).exists()
+
+    members = group.memberships.all()
+    member_usernames = [membership.profile.user.username for membership in members]
+
+    context = {
+        'group':group,
+        'is_member':is_member,
+        'author':group.author.username,
+        'created_at':group.created_at.strftime('%Y.%m.%d'),
+        'member_usernames':member_usernames,
+    }
+    return render(request, 'groups/my_group_detail.html', context)

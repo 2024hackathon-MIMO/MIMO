@@ -42,7 +42,7 @@
       </header>
       <section>
         {% for group in groups %}
-        <a href="{% url 'groups:group_detail' group.id %}">
+        <a href="{% url 'groups:my_group_detail' group.id %}">
           <div class="team_box">
             <div class="team_name">{{ group.name }}</div>
             <div class="team_info">

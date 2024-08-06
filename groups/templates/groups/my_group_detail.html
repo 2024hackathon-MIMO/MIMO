@@ -1,0 +1,52 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <!-- css 파일 불러오기 -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/group_detail.css' %}" />
+    <title>group_made_page</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        min-height: 100vh;
+        background-color: #efefef;
+      }
+
+      article {
+        width: 430px;
+        height: 1000px;
+        background-color: #191919;
+        border-radius: 10px;
+        position: relative;
+        top: 0;
+        left: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <article>
+      <div class="detail_box">
+        <div class="title">{{ group.name }}</div>
+        <div class="info">
+          <div class="info_1">{{created_at}}</div>
+          <div class="info_2"><span>인원</span>{{group.memberships.count}}/{{ group.max_members }}명<span>그룹장</span>{{author}}</div>
+          <div class="intro">{{ group.introduce }}</div>
+        </div>
+        <div class="member">
+          {% for username in member_usernames %}
+          <div class="nickname">{{ username }}</div>
+          {% endfor %}
+      </div>
+        <div class="select_line">
+          <a href="{% url 'main:main' %}"><button class="cancel">취소</button></a>
+        </div>
+      </div>
+    </article>
+    <script src="{% static 'js/group_search.js' %}"></script>
+  </body>
+</html>

@@ -64,8 +64,15 @@ article {
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-direction: row;
+  flex-wrap: wrap; /* 요소들이 여러 줄로 나뉘도록 함 */
   margin-top: 7px;
+  width: 300px;
+  overflow: scroll;
+  height: 169px;
+}
+
+.member::-webkit-scrollbar {
+  display: none;
 }
 
 .nickname {
@@ -76,7 +83,7 @@ article {
   border-radius: 25px;
   border: 1px solid #f3f3f3;
   font-size: 11.5px;
-  padding: 0px 30px;
+  padding: 0px 20px;
 }
 
 .select_line {
