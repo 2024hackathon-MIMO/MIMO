@@ -19,7 +19,7 @@
 
       article {
         width: 430px;
-        height: 1000px;
+        height: 932px;
         background-color: #191919;
         border-radius: 10px;
         position: relative;
@@ -46,7 +46,11 @@
           <div class="team_box">
             <div class="team_name">{{ group.name }}</div>
             <div class="team_info">
+<<<<<<< Updated upstream
               <div class="info_1"><span>인원</span>{{ group.memberships.count }}/{{ group.max_members }}명</div>
+=======
+              <div class="info_1"><span>인원</span>{{group.memberships.count}}/{{ group.max_members }}명</div>
+>>>>>>> Stashed changes
               <div class="info_2"><span>그룹장</span>{{ group.author }}</div>
               <div class="info_3"><span>시작일</span>{{ group.created_at|date:"Y.m.d" }}</div>
             </div>

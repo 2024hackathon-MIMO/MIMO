@@ -11,6 +11,7 @@
 header,
 footer {
   position: fixed;
+  background-color: #191919;
 }
 
 footer {
@@ -91,6 +92,8 @@ section {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin: 198px 0px;
+  height: auto;
 }
 
 .search_box {
@@ -99,7 +102,6 @@ section {
   align-items: center;
   width: 237px;
   height: 37px;
-  margin-top: 198px;
   border-radius: 25px;
   background: #ffffff;
   box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.25);
@@ -241,6 +243,20 @@ p {
   display: flex;
   flex-direction: column;
   align-items: center;
+  height: 500px;
+  overflow: auto;
+}
+
+.team_list::-webkit-scrollbar {
+  width: 15px;
+}
+.team_list::-webkit-scrollbar-thumb {
+  background-color: rgba(75, 75, 75, 0.7);
+  border-radius: 10px;
+}
+.team_list::-webkit-scrollbar-track {
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
 }
 
 .team_box {

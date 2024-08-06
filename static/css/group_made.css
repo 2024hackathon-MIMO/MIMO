@@ -11,6 +11,7 @@
 header,
 footer {
   position: fixed;
+  background-color: #191919;
 }
 
 footer {
