@@ -6,7 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Modify Open Time</title>
     <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}" />
-    <link rel="stylesheet" type="text/css" href="{% static 'css/modify_time.css' %}" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'css/modify_time.css' %}"
+    />
     <style>
       body {
         margin: 0;
@@ -52,35 +56,64 @@
             {% csrf_token %}
             <div class="morning">
               <p class="message">모닝메세지 :</p>
-              <input name="morning_time" id="morningTime" class="time" type="time" value="{{ morning_time|default:'06:00' }}" min="06:00" max="10:00" />
+              <input
+                name="morning_time"
+                id="morningTime"
+                class="time"
+                type="time"
+                value="{{ morning_time|default:'05:00' }}"
+                min="06:00"
+                max="10:00"
+              />
               <p class="message">~</p>
               <p class="time" id="morningTimePlusOneHour"></p>
             </div>
             <div class="night">
               <p class="message">나잇메세지 :</p>
-              <input name="night_time" id="nightTime" class="time" type="time" value="{{ night_time|default:'22:00' }}" min="22:00" max="24:00" />
+              <input
+                name="night_time"
+                id="nightTime"
+                class="time"
+                type="time"
+                value="{{ night_time|default:'21:00' }}"
+                min="20:00"
+                max="24:00"
+              />
               <p class="message">~</p>
               <p class="time" id="nightTimePlusOneHour"></p>
             </div>
           </form>
         </section>
         <section class="sec3">
-          <button type="submit" class="modifyBtn" onclick="submitForm()">수정</button>
+          <button type="submit" class="modifyBtn" onclick="submitForm()">
+            수정
+          </button>
         </section>
       </section>
       <footer>
         <div class="button_box">
           <a href="{% url 'main:main' %}">
-            <button id="home"><img src="{% static 'img/base.html_home.svg' %}" alt="홈화면" /></button>
+            <button id="home">
+              <img src="{% static 'img/base.html_home.svg' %}" alt="홈화면" />
+            </button>
           </a>
           <a href="{% url 'groups:my_groups' %}">
-            <button id="group"><img src="{% static 'img/base.html_group.svg' %}" alt="그룹" /></button>
+            <button id="group">
+              <img src="{% static 'img/base.html_group.svg' %}" alt="그룹" />
+            </button>
           </a>
           <a href="{% url 'main:notifications' %}">
-            <button id="ball"><img src="{% static 'img/base.html_ball.svg' %}" alt="알림" /></button>
+            <button id="ball">
+              <img src="{% static 'img/base.html_ball.svg' %}" alt="알림" />
+            </button>
           </a>
           <a href="{% url 'accounts:mypage' %}">
-            <button id="mypage"><img src="{% static 'img/base.html_mypage_active.svg' %}" alt="마이페이지" /></button>
+            <button id="mypage">
+              <img
+                src="{% static 'img/base.html_mypage_active.svg' %}"
+                alt="마이페이지"
+              />
+            </button>
           </a>
         </div>
       </footer>

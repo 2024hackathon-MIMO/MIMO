@@ -16,7 +16,7 @@
       <div class="message">
         <p>
           <strong>{{ message.nick.nickname }}님의 메시지:</strong> {{
-          message.morning_mes }}
+          message.morning_mes }} 시간: {{ message.created_at|date:"Y.m.d" }}
         </p>
       </div>
       {% endfor %} {% else %}
@@ -28,7 +28,7 @@
       <div class="message">
         <p>
           <strong>{{ message.nick.nickname }}님의 메시지:</strong>
-          {{ message.night_mes }}
+          {{ message.night_mes }} 시간: {{ message.created_at|date:"Y.m.d" }}
         </p>
       </div>
       {% endfor %} {% else %}

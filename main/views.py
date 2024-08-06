@@ -27,7 +27,7 @@ def set_open_time(request):
 # 열람시간 수정
 def modify_time(request):
     user = request.user
-    open_time, created = openTime.objects.get_or_create(user=user, defaults={'morning_time': '06:00:00', 'night_time': '23:00:00'})
+    open_time, created = openTime.objects.get_or_create(user=user, defaults={'morning_time': '05:00:00', 'night_time': '21:00:00'})
     if request.method == 'POST':
         form = OpenTimeForm(request.POST, instance=open_time)
         if form.is_valid():
@@ -140,6 +140,7 @@ def main(request):
             if not Notification.objects.filter(user=user, message="나잇메세지를 열람할 수 있습니다.").exists():
                 Notification.objects.create(user=user, message="나잇메세지를 열람할 수 있습니다.")
 
+
     return render(request, 'main/main.html', context)
 
 # 메시지 열람하기 >> 모닝 나잇 따로 분류해야할 듯
@@ -158,8 +159,8 @@ def message_list(request):
         morning_time = open_time.morning_time
         night_time = open_time.night_time
     else:
-        morning_time = datetime.strptime('05:00:00', '%H:%M:%S').time()
-        night_time = datetime.strptime('21:00:00', '%H:%M:%S').time()
+        morning_time = datetime.strptime('06:00:00', '%H:%M:%S').time()
+        night_time = datetime.strptime('23:00:00', '%H:%M:%S').time()
     
     now = timezone.localtime(timezone.now())
     current_time = now.time()
@@ -286,6 +287,10 @@ def like_message(request, id, type):  # 'type'을 위치 인자로 받습니다.
 # 메세지 수정
 def update(request, id):
     message = get_object_or_404(Message, id=id)
+    # 9:21 수정(수정부분에도 드롭다운에는 가입된 그룹만 있어야함)
+    user_profile = Profile.objects.get(user=request.user)
+    user_groups = Group.objects.filter(memberships__profile=user_profile)
+
     if request.method == "POST":
         form = MessageForm(request.POST, instance=message)
         if form.is_valid():
@@ -297,6 +302,7 @@ def update(request, id):
             return redirect('main:main')
     else:
         form = MessageForm(instance=message)
+        form.fields['group'].queryset = user_groups  # 9:21수정
     
     return render(request, 'main/update.html', {'form': form, 'message': message})   
 
