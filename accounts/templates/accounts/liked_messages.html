@@ -5,35 +5,100 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>좋아요한 글</title>
-    <link rel="stylesheet" href="{% static 'css/base.css' %}" />
-    <link rel="stylesheet" href="{% static 'css/liked_messages.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/liked_messages.css' %}" />
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        min-height: 100vh;
+        background-color: #efefef;
+      }
+
+      article {
+        width: 430px;
+        height: 932px;
+        background-color: #191919;
+        border-radius: 10px;
+        position: relative;
+        top: 0;
+        left: 0;
+      }
+    </style>
   </head>
   <body>
-    <div class="container">
-      <h2>좋아요한 메시지</h2>
-      <h3>모닝메세지</h3>
-      {% if morning_liked_messages %}{% for message in morning_liked_messages %}
-      <div class="message">
-        <p>
-          <strong>{{ message.nick.nickname }}님의 메시지:</strong> {{
-          message.morning_mes }}
-        </p>
-      </div>
-      {% endfor %} {% else %}
-      <p>모닝메세지에 좋아요를 누른 메시지가 없습니다.</p>
-      {% endif %}
+    <article>
+      <header>
+        <a href="{% url 'main:main' %}">
+          <div class="logo">
+            <img src="{% static 'img/base.html_logo.svg' %}" alt="로고이미지" />
+          </div>
+        </a>
+        <div class="title_line">
+          <div class="date">나의 좋아요</div>
+        </div>
+      </header>
 
-      <h3>나잇메세지</h3>
-      {% if night_liked_messages %} {% for message in night_liked_messages %}
-      <div class="message">
-        <p>
-          <strong>{{ message.nick.nickname }}님의 메시지:</strong>
-          {{ message.night_mes }}
-        </p>
-      </div>
-      {% endfor %} {% else %}
-      <p>나잇메세지에 좋아요를 누른 메시지가 없습니다.</p>
-      {% endif %}
-    </div>
+      <section class="secBox">
+        <div class="cardBox">
+          {% if morning_liked_messages %}{% for message in morning_liked_messages %}
+          <section class="sec">
+            <div class="background">
+              <img src="{% static 'img/likepage.html_morning.svg' %}" alt="모닝메세지로고" />
+              <h3>{{ message.created_at|date:"Y.m.d" }}<br />{{ message.nick.nickname }}님의 모닝메세지</h3>
+              <p>{{ message.morning_mes }}</p>
+            </div>
+          </section>
+          {% endfor %} {% endif %} {% if night_liked_messages %} {% for message in night_liked_messages %}
+          <section class="sec">
+            <div class="background">
+              <img src="{% static 'img/likepage.html_morning.svg' %}" alt="모닝메세지로고" />
+              <h3>{{ message.created_at|date:"Y.m.d" }}<br />{{ message.nick.nickname }}님의 나잇메세지</h3>
+              <p>{{ message.night_mes }}</p>
+            </div>
+          </section>
+          {% endfor %} {% endif %}
+        </div>
+      </section>
+
+      <footer>
+        <div class="button_box">
+          <a href="{% url 'main:main' %}">
+            <button id="home"><img src="{% static 'img/base.html_home.svg' %}" alt="홈화면" /></button>
+          </a>
+          <a href="{% url 'groups:my_groups' %}">
+            <button id="group"><img src="{% static 'img/base.html_group.svg' %}" alt="그룹" /></button>
+          </a>
+          <a href="{% url 'main:notifications' %}">
+            <button id="ball"><img src="{% static 'img/base.html_ball.svg' %}" alt="알림" /></button>
+          </a>
+          <a href="{% url 'accounts:mypage' %}">
+            <button id="mypage"><img src="{% static 'img/base.html_mypage_active.svg' %}" alt="마이페이지" /></button>
+          </a>
+        </div>
+      </footer>
+    </article>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const buttons = document.querySelectorAll(".button_box button");
+        buttons.forEach((button) => {
+          button.addEventListener("click", () => {
+            buttons.forEach((btn) => {
+              btn.classList.remove("active");
+              const img = btn.querySelector("img");
+              const imgSrc = img.getAttribute("src").replace("_active", "");
+              img.setAttribute("src", imgSrc);
+            });
+            button.classList.add("active");
+            const img = button.querySelector("img");
+            const imgSrc = img.getAttribute("src").replace(".svg", "_active.svg");
+            img.setAttribute("src", imgSrc);
+          });
+        });
+      });
+    </script>
   </body>
 </html>
