@@ -28,8 +28,5 @@ document.addEventListener("DOMContentLoaded", function () {
 
   clearPwd.addEventListener("click", function () {
     pwdInput.value = "";
-    validatePassword();
   });
-
-  pwdInput.addEventListener("input", validatePassword);
 });

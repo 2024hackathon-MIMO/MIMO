@@ -128,3 +128,12 @@ input[id="checkbox"]:checked + label::after {
   background-repeat: no-repeat; /* 이미지 반복 없음 */
   transform: translate(-10%, -20%); /* 중앙으로 이동 */
 }
+
+.input_box > img {
+  width: 15px;
+}
+
+#togglePwd1,
+#togglePwd2 {
+  width: 20px;
+}
