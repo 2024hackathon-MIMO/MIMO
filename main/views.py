@@ -159,8 +159,8 @@ def message_list(request):
         morning_time = open_time.morning_time
         night_time = open_time.night_time
     else:
-        morning_time = datetime.strptime('05:00:00', '%H:%M:%S').time()
-        night_time = datetime.strptime('21:00:00', '%H:%M:%S').time()
+        morning_time = datetime.strptime('06:00:00', '%H:%M:%S').time()
+        night_time = datetime.strptime('23:00:00', '%H:%M:%S').time()
     
     now = timezone.localtime(timezone.now())
     current_time = now.time()
