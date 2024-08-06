@@ -43,6 +43,17 @@
 
       <form method="post">
         {% csrf_token %}
+        {% if form.errors %}
+                <div class="errorlist">
+                    <ul>
+                        {% for field, errors in form.errors.items %}
+                            {% for error in errors %}
+                                <li>{{ error }}</li>
+                            {% endfor %}
+                        {% endfor %}
+                    </ul>
+                </div>
+            {% endif %}
         <div class="box">
           <label for="nickname" class="title">닉네임</label>
           <div class="input_box">

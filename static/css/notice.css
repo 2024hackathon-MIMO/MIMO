@@ -11,6 +11,7 @@
 header,
 footer {
   position: fixed;
+  background-color: #191919;
 }
 
 footer {
@@ -67,9 +68,22 @@ button {
 /*여기까지 고정 상단바와 하단바 */
 
 section {
-  height: 664px;
+  height: 600px;
   padding: 32px;
   margin-top: 177px;
+  overflow: auto;
+}
+
+section::-webkit-scrollbar {
+  width: 15px;
+}
+section::-webkit-scrollbar-thumb {
+  background-color: rgba(75, 75, 75, 0.7);
+  border-radius: 10px;
+}
+section::-webkit-scrollbar-track {
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
 }
 
 .message_box {
