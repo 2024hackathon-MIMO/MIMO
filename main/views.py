@@ -27,7 +27,7 @@ def set_open_time(request):
 # 열람시간 수정
 def modify_time(request):
     user = request.user
-    open_time, created = openTime.objects.get_or_create(user=user, defaults={'morning_time': '06:00:00', 'night_time': '23:00:00'})
+    open_time, created = openTime.objects.get_or_create(user=user, defaults={'morning_time': '05:00:00', 'night_time': '21:00:00'})
     if request.method == 'POST':
         form = OpenTimeForm(request.POST, instance=open_time)
         if form.is_valid():
@@ -139,6 +139,7 @@ def main(request):
             context['can_open_messages'] = True
             if not Notification.objects.filter(user=user, message="나잇메세지를 열람할 수 있습니다.").exists():
                 Notification.objects.create(user=user, message="나잇메세지를 열람할 수 있습니다.")
+
 
     return render(request, 'main/main.html', context)
 

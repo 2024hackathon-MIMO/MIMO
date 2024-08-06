@@ -6,8 +6,8 @@ from django.utils import timezone
 # 열람시간 저장 모델 + 각 유저마다 시간을 다르게 볼 수 있도록
 class openTime(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    morning_time = models.TimeField(default='06:00:00')
-    night_time = models.TimeField(default='23:00:00')
+    morning_time = models.TimeField(default='05:00:00')
+    night_time = models.TimeField(default='21:00:00')
 
     def __str__(self):
         return f"모닝메세지: {self.morning_time}, 나잇메세지: {self.night_time}"
