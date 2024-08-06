@@ -16,6 +16,7 @@
       />
     </div>
   </a>
+
   {% else %}
   <a href="{% url 'main:message_create' %}">
     <div class="main-message">
@@ -46,7 +47,7 @@
     </div>
   </div>
 
-  {% if user_has_written_message %} {% if can_open_messages %}
+  {% if user_has_written_message %} {% if True %}
   <div class="card-box">
     <div
       id="card-container"
