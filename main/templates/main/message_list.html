@@ -63,138 +63,50 @@
         <div class="toggle-buttons">
           <button id="bg-btn" class="active">배경색</button>
           <button id="icon-btn">아이콘</button>
-        </div>
-        <div id="bg-options" class="options active">
-          <div style="background-color: #ffffff"></div>
+      </div>
+      <div id="bg-options" class="options active">
+          <div style="background-color: #ffffff;"></div>
           <div class="separator"></div>
-          <div style="background-color: #d1f7c4"></div>
-          <div style="background-color: #f8f7c4"></div>
-          <div style="background-color: #c4f7d4"></div>
-          <div style="background-color: #c4f2f7"></div>
-          <div style="background-color: #d1c4f7"></div>
-          <div style="background-color: #f7c4e4"></div>
-        </div>
-        <img
-          src="{% static 'img/vip.svg' %}"
-          alt="Overlay Image"
-          class="overlay-image"
-        />
-        <div id="icon-options" class="options">
+          <div style="background-color: #d1f7c4;"></div>
+          <div style="background-color: #f8f7c4;"></div>
+          <div style="background-color: #c4f7d4;"></div>
+          <div style="background-color: #c4f2f7;"></div>
+          <div style="background-color: #d1c4f7;"></div>
+          <div style="background-color: #f7c4e4;"></div>
+      </div>
+      <img src="{% static 'img/vip.svg' %}" alt="Overlay Image" class="overlay-image">
+      <div id="icon-options" class="options">
           <div>
-            <img
-              class="morning"
-              src="{% static 'img/vip_clove.svg' %}"
-              alt="Icon 1"
-            />
+              <img class="morning" src="{% static 'img/vip_clove.svg' %}" alt="Icon 1">
           </div>
           <div class="separator"></div>
-          <div><img src="{% static 'img/vip_baby.svg' %}" alt="Icon 2" /></div>
-          <div><img src="{% static 'img/vip_dog.svg' %}" alt="Icon 3" /></div>
-          <div>
-            <img
-              class="cat"
-              src="{% static 'img/vip_kitty.svg' %}"
-              alt="Icon 4"
-            />
-          </div>
-          <div><img src="{% static 'img/vip_heart.svg' %}" alt="Icon 5" /></div>
-          <div><img src="{% static 'img/vip_smile.svg' %}" alt="Icon 6" /></div>
-          <div><img src="{% static 'img/vip_pp.svg' %}" alt="Icon 7" /></div>
-        </div>
-        <img
-          src="{% static 'img/vip.svg' %}"
-          alt="Overlay Image"
-          class="overlay-image"
-        />
+          <div><img src="{% static 'img/vip_baby.svg' %}" alt="Icon 2"></div>
+          <div><img src="{% static 'img/vip_dog.svg' %}" alt="Icon 3"></div>
+          <div><img class="cat" src="{% static 'img/vip_kitty.svg' %}" alt="Icon 4"></div>
+          <div><img src="{% static 'img/vip_heart.svg' %}" alt="Icon 5"></div>
+          <div><img src="{% static 'img/vip_smile.svg' %}" alt="Icon 6"></div>
+          <div><img src="{% static 'img/vip_pp.svg' %}" alt="Icon 7"></div>
+      </div>
+      <img src="{% static 'img/vip.svg' %}" alt="Overlay Image" class="overlay-image">
       </div>
       {% if next_user_message %}
       <div class="card">
         <div class="container">
           {% if time_period == 'morning' %}
           <div class="card-header">
-            <img
-              class="card-icon"
-              src="{% static 'img/vip_clove.svg' %}"
-              alt="icon"
-            />
+            <img class="card-icon" src="{% static 'img/vip_clove.svg' %}" alt="icon" />
             <h3>모닝메세지</h3>
           </div>
           <div class="card-text">
             <p>{{ next_user_message.morning_mes }}</p>
           </div>
-          <div class="ilike">
-            {% if next_user_message.id in user_morning_liked_message_ids %}
-            <form
-              method="post"
-              action="{% url 'main:like_message' next_user_message.id 'morning' %}"
-            >
-              {% csrf_token %}
-              <button type="submit" class="like-button">
-                <img
-                  id="likeButton"
-                  src="{% static 'img/detail_like_click.svg' %}"
-                  alt="Like Button"
-                />
-              </button>
-            </form>
-            {% else %}
-            <form
-              method="post"
-              action="{% url 'main:like_message' next_user_message.id 'morning' %}"
-            >
-              {% csrf_token %}
-              <button type="submit" class="like-button">
-                <img
-                  id="likeButton"
-                  src="{% static 'img/detail_like_none.svg' %}"
-                  alt="Like Button"
-                />
-              </button>
-            </form>
-            {% endif %}
-          </div>
           {% elif time_period == 'night' %}
           <div class="card-header">
-            <img
-              class="card-icon"
-              src="{% static 'img/vip_clove.svg' %}"
-              alt="icon"
-            />
+            <img class="card-icon" src="{% static 'img/vip_clove.svg' %}" alt="icon" />
             <h3>나잇메세지</h3>
           </div>
           <div class="card-text">
             <p>{{ next_user_message.night_mes }}</p>
-          </div>
-          <div class="ilike">
-            {% if next_user_message.id in user_night_liked_message_ids %}
-            <form
-              method="post"
-              action="{% url 'main:like_message' next_user_message.id 'night' %}"
-            >
-              {% csrf_token %}
-              <button type="submit" class="like-button">
-                <img
-                  id="likeButton"
-                  src="{% static 'img/detail_like_click.svg' %}"
-                  alt="Like Button"
-                />
-              </button>
-            </form>
-            {% else %}
-            <form
-              method="post"
-              action="{% url 'main:like_message' next_user_message.id 'night' %}"
-            >
-              {% csrf_token %}
-              <button type="submit" class="like-button">
-                <img
-                  id="likeButton"
-                  src="{% static 'img/detail_like_none.svg' %}"
-                  alt="Like Button"
-                />
-              </button>
-            </form>
-            {% endif %}
           </div>
           {% endif %}
           <div class="card-footer">
@@ -202,10 +114,71 @@
           </div>
         </div>
       </div>
+      <div class="ilike">
+        {% if time_period == 'morning' %}
+          {% if next_user_message.id in user_morning_liked_message_ids %}
+          <form method="post" action="{% url 'main:like_message' next_user_message.id 'morning' %}">
+            {% csrf_token %}
+            <button type="submit" class="like-button">
+              <img id="likeButton" src="{% static 'img/detail_like_click.svg' %}" alt="Like Button" />
+            </button>
+          </form>
+          {% else %}
+          <form method="post" action="{% url 'main:like_message' next_user_message.id 'morning' %}">
+            {% csrf_token %}
+            <button type="submit" class="like-button">
+              <img id="likeButton" src="{% static 'img/detail_like_none.svg' %}" alt="Like Button" />
+            </button>
+          </form>
+          {% endif %}
+        {% elif time_period == 'night' %}
+          {% if next_user_message.id in user_night_liked_message_ids %}
+          <form method="post" action="{% url 'main:like_message' next_user_message.id 'night' %}">
+            {% csrf_token %}
+            <button type="submit" class="like-button">
+              <img id="likeButton" src="{% static 'img/detail_like_click.svg' %}" alt="Like Button" />
+            </button>
+          </form>
+          {% else %}
+          <form method="post" action="{% url 'main:like_message' next_user_message.id 'night' %}">
+            {% csrf_token %}
+            <button type="submit" class="like-button">
+              <img id="likeButton" src="{% static 'img/detail_like_none.svg' %}" alt="Like Button" />
+            </button>
+          </form>
+          {% endif %}
+        {% endif %}
+      </div>
       {% else %}
-      <p>현재 시간대에 해당하는 메시지가 없습니다.</p>
-      {% endif %}
+        <div class="card">
+        <div class="container">
+            {% if time_period == 'morning' %}
+                <div class="card-header">
+                    <img class="card-icon" src="{% static 'img/vip_clove.svg' %}" alt="icon">
+                    <h3>모닝메세지</h3>
+                </div>
+                <div class="card-text">
+                    <p>안녕 좋은 아침이에요<br>
+                        오늘 날씨는 맑다고 해요<br>
+                        맑은 날씨만큼이나 기분 좋은<br>하루가 되길 바라면서<br>오늘 하루도 화이팅이에요:)</p>
+                </div>
+            {% elif time_period == 'night' %}
+                <div class="card-header">
+                    <img class="card-icon" src="{% static 'img/vip_clove.svg' %}" alt="icon">
+                    <h3>나잇메세지</h3>
+                </div>
+                <div class="card-text">
+                    <p>안녕 오늘 하루는 어땠나요<br>오늘 날씨만큼 흐렸나요<br>화창하진 않았대도 자그만 행복이<br>깃들었길 바래요</p>
+                </div>
+            {% endif %}
+            <div class="card-footer">
+                <p>from. MIMO</p>
+            </div>
+        </div>
+    </div>
+    {% endif %}
     </article>
+    
     <script>
       document.getElementById("bg-btn").addEventListener("click", function () {
         this.classList.add("active");

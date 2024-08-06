@@ -79,15 +79,11 @@
     <div
       id="card-container"
       data-card-img-url="{% static 'img/main_card.svg' %}"
+      data-message-list-url="{% url 'main:message_list' %}"
       class="card-container"
     >
       <!-- Cards will be added here dynamically -->
     </div>
-    <img
-      src="{% static 'img/main_alert_before.svg' %}"
-      alt="Overlay Image"
-      class="overlay-image"
-    />
     <script src="{% static 'js/card.js' %}"></script>
   </div>
   {% endif %}
